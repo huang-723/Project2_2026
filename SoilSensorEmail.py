@@ -24,7 +24,7 @@ def send_plant_email(status):
     msg['From'] = from_email_addr
     msg['To'] = to_email_addr
     msg['Subject'] = 'Plant Moisture Report'
-
+    
     server = smtplib.SMTP('smtp.qq.com', 587)
     server.starttls()
     server.login(from_email_addr, from_email_pass)
@@ -34,7 +34,7 @@ def send_plant_email(status):
 
 seconds = time.time()
 result = time.localtime(seconds)
-print("Current TIME Hour:", result.tm_hour + 8)
+print("Current TIME Hour:", result.tm_hour)
 
 startTime = 11
 lastValue = startTime
@@ -43,7 +43,7 @@ print ("Time to send the FIRST email of the day")
 while (True):
     seconds = time.time()
     result = time.localtime(seconds)
-    Current_Value = result.tm_hour + 8
+    Current_Value = result.tm_hour
 
     if (lastValue == Current_Value):
         print ("IGNORE")
