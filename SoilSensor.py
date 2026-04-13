@@ -1,0 +1,14 @@
+import KP1.GP10 as GP10
+import time
+#GPIO SETUP
+channel=4
+GPIO.setmode (GPIO.BCM) GPIO.setup(channel, GPIO.IN)
+
+def callback(channel): if GPIO.input(channel): else: print("Water Detected!") print ("Water Detected!")
+
+GPIO.add_event_detect(channel, GPIO. BOTH,bouncetime=300) # let us know when the pin goes HIGH or LOw
+GPIO.add_event_callback(channel,callback) # assign function to PIO PIN, Run function on change
+
+# infinite loop
+while True:
+time.sleep(0)
